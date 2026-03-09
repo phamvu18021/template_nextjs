@@ -108,6 +108,18 @@ Mở trình duyệt tại địa chỉ [http://localhost:3000](http://localhost:
 
 ---
 
+## 5. Dọn dẹp Bộ khung Mẫu (Cleaning)
+
+Khi bắt đầu code dự án thực tế, bạn có thể xoá bỏ các hướng dẫn và ví dụ mẫu của nền tảng này:
+
+- Xóa các file Markdown tài liệu gốc: `HOW_TO_CLONE.md`, `STRUCTURE.md`, `TECHNOLOGIES.md`, và sửa lại file `README.md` này theo ý bạn.
+- Xóa Component Redux ví dụ:
+  - Thư mục slice: `src/store/features/counter` (Nhớ xóa cả import của reducer trong `src/store/store.ts`).
+  - Giao diện: `src/app/_components/Counter.tsx`.
+- Chỉnh sửa lại `src/app/page.tsx` và xóa bỏ nội dung thẻ `<Counter />` đã được tôi viết sẵn.
+
+---
+
 ## Commit đầu tiên cho dự án
 
 Sau khi làm xong các bước trên, hãy commit toàn bộ source code ban đầu này lên nhánh `main` của dự án mới:

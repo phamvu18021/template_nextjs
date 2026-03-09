@@ -123,3 +123,31 @@ npm run dev
 ```
 
 Mở trình duyệt tại địa chỉ [http://localhost:3000](http://localhost:3000) để xem mã nguồn hiển thị.
+
+---
+
+## 5. Dọn dẹp Document & File Mẫu của Template (Cleaning)
+
+Vì boilerplate này cung cấp sẵn các tệp mô tả hướng dẫn và `Counter` component làm ví dụ Redux, nên khi bắt đầu viết code thực tế, bạn hãy thực hiện dọn dẹp rác template theo các bước sau:
+
+**1. Xoá các tệp tài liệu Markdown thừa ở thư mục gốc (Tuỳ chọn):**
+
+```bash
+rm HOW_TO_CLONE.md STRUCTURE.md TECHNOLOGIES.md
+```
+
+_(Đồng thời, bạn cũng có thể tự thay đổi lại toàn bộ nội dung trong tệp `README.md` để ghi chú thông tin về dự án mới của mình)._
+
+**2. Xoá các thành phần mẫu liên quan đến `Counter`:**
+
+- Xoá thư mục **Component Ví dụ**: `src/app/_components/Counter.tsx`
+- Xoá thư mục **Redux Slice Ví dụ**: `src/store/features/counter`
+
+**3. Khởi tạo lại Component Gốc:**
+
+- Mở `src/store/store.ts` xoá dòng import/khởi tạo của `counterReducer`.
+- Mở `src/app/page.tsx`, xoá dòng thẻ chạy `<Counter />` mẫu và tự do thay thế bằng logic mới của bạn.
+
+---
+
+Chúc bạn bắt đầu dự án thật suôn sẻ và năng suất! 🚀
