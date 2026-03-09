@@ -10,7 +10,27 @@ Nếu repository template này đã được đẩy lên Github và cấu hình 
 2. Tìm và bấm vào nút màu xanh có nội dung **"Use this template"** ở góc phải phía trên.
 3. Chọn **"Create a new repository"**.
 4. Điền tên mới cho dự án của bạn (VD: `my-awesome-project`) và khởi tạo kho lưu trữ.
-5. Máy chủ Github sẽ tự chép mã nguồn sang repository mới tinh của bạn. Giờ bạn chỉ cần clone URL của repo mới về máy và sử dụng.
+5. Máy chủ Github sẽ tự chép mã nguồn sang repository mới tinh của bạn.
+6. Clone URL của repo mới về máy và chạy chuỗi lệnh khởi tạo dự án:
+
+```bash
+# Clone dự án mới về máy
+git clone <URL-repo-mới-tạo>
+cd <tên-thư-mục-repo>
+
+# Cài đặt thư viện
+npm install
+
+# Khởi tạo biến môi trường
+cp .env.example .env.local
+
+# Khởi tạo Git Hooks (Husky)
+npx husky init
+git config core.hooksPath .husky/_
+
+# Chạy dự án
+npm run dev
+```
 
 ---
 

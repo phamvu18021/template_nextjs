@@ -18,7 +18,26 @@ _(Chỉ dùng được nếu bạn đẩy source code này lên Github và cấu
 1. Truy cập vào giao diện repository này trên GitHub.
 2. Bấm vào nút màu xanh **"Use this template"** -> **"Create a new repository"**.
 3. Điền tên dự án mới và tạo repo.
-4. Clone repo mới tạo về máy tính của bạn và bắt đầu dev.
+4. Clone repo mới tạo về máy tính của bạn và chạy chuỗi lệnh khởi tạo dự án:
+
+```bash
+# Clone dự án mới về máy
+git clone <URL-repo-mới-tạo>
+cd <tên-thư-mục-repo>
+
+# Cài đặt thư viện
+npm install
+
+# Khởi tạo biến môi trường
+cp .env.example .env.local
+
+# Khởi tạo Git Hooks (Husky)
+npx husky init
+git config core.hooksPath .husky/_
+
+# Chạy dự án
+npm run dev
+```
 
 ### Cách 2: Clone thủ công bằng Git CLI (Khuyên dùng)
 
