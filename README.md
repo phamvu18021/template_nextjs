@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 16 Boilerplate Template 🚀
 
-## Getting Started
+Đây là một template chuẩn mực dành cho các dự án Next.js khởi tạo trong tương lai, được cấu hình sẵn với toàn bộ các công nghệ hiện đại và best practices (App Router, Redux Toolkit, Tailwind CSS, Prettier, ESLint, Husky,...).
 
-First, run the development server:
+- 📄 Chi tiết kiến trúc dự án xem tại: [STRUCTURE.md](./STRUCTURE.md)
+- ⚙️ Chi tiết công nghệ sử dụng xem tại: [TECHNOLOGIES.md](./TECHNOLOGIES.md)
+
+---
+
+## Cách sử dụng Template này cho một dự án mới
+
+Để khởi tạo một dự án mới hoàn toàn (sạch lịch sử commit) dựa trên bộ khung này, bạn có thể thực hiện theo 2 cách dưới đây:
+
+### Cách 1: Sử dụng tính năng "Use this template" của Github
+
+_(Chỉ dùng được nếu bạn đẩy source code này lên Github và cấu hình nó là một Template Repository)._
+
+1. Truy cập vào giao diện repository này trên GitHub.
+2. Bấm vào nút màu xanh **"Use this template"** -> **"Create a new repository"**.
+3. Điền tên dự án mới và tạo repo.
+4. Clone repo mới tạo về máy tính của bạn và bắt đầu dev.
+
+### Cách 2: Clone thủ công bằng Git CLI (Khuyên dùng)
+
+Dành cho trường hợp bạn muốn clone trực tiếp từ thư mục local hoặc từ link Git:
+
+**Bước 1: Clone mã nguồn về máy (Lưu ý thay tên thư mục `my-new-project` bằng tên dự án thực tế bạn muốn)**
+
+```bash
+git clone <đường-dẫn-repo-template-này> my-new-project
+cd my-new-project
+```
+
+**Bước 2: Xoá bỏ lịch sử Git cũ của Template**
+Bạn cần gỡ bỏ kết nối remote tới template gốc và xoá luôn lịch sử git cũ để bắt đầu dự án mới cho sạch sẽ:
+
+```bash
+# Xoá hoàn toàn thư mục .git cũ (Trên Windows dùng PowerShell/CMD)
+rm -rf .git  # Hoặc rd /s /q .git (nếu dùng Command Prompt Windows)
+
+# Khởi tạo lại một git cho dự án hoàn toàn mới
+git init
+```
+
+**Bước 3: Liên kết với Repository mới của dự án mới**
+Tạo một dự án trống trên Git (Github/Gitlab/Bitbucket), lấy đường dẫn repository mới của bạn và liên kết:
+
+```bash
+git remote add origin <đường-dẫn-repo-git-mới-cua-ban>
+```
+
+---
+
+## Các thao tác Cài đặt ban đầu cho dự án mới
+
+Sau khi đã clone thành công bộ khung trống về dự án mới, bạn cần thực hiện các thao tác để kích hoạt hệ thống:
+
+**1. Cài đặt các gói thư viện (Dependencies):**
+
+```bash
+npm install
+```
+
+**2. Khởi tạo biến môi trường:**
+Copy mẫu biến môi trường có sẵn sang một file `.env.local` thực tế (được gitignore để bảo mật thông tin).
+
+```bash
+cp .env.example .env.local
+```
+
+**3. Khởi tạo lại Git Hook (Husky v9+):**
+Đảm bảo hệ thống bắt lỗi (Linter) trước khi commit của Husky được kích hoạt trên hệ thống máy trạm của lập trình viên tham gia.
+
+```bash
+npx husky init
+git config core.hooksPath .husky/_
+```
+
+_(Nếu bạn đang xài Bash/WSL trên Windows, bạn cũng có thể mở file `.husky/pre-commit` và đổi lệnh thành `npx.cmd lint-staged` nếu bị lỗi)._
+
+**4. Chạy dự án:**
+Thử nghiệm chạy local server ở môi trường phát triển:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở trình duyệt tại địa chỉ [http://localhost:3000](http://localhost:3000) để xem trước màn hình.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Commit đầu tiên cho dự án
 
-## Learn More
+Sau khi làm xong các bước trên, hãy commit toàn bộ source code ban đầu này lên nhánh `main` của dự án mới:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git add .
+git commit -m "Init: Khởi tạo dự án Next.js từ Boilerplate"
+git branch -M main
+git push -u origin main
+```
